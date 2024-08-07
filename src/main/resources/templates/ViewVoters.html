@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Voters</title>
+<style type="text/css">
+body {
+	font-family: Arial, sans-serif;
+	background:
+		url("https://removal.ai/wp-content/uploads/2021/09/black-background-04-coolbackgrounds.png");
+	color: #00FF00;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.view-voters-container {
+	width: 90%;
+	max-width: 1200px;
+	background: #121212;
+	border-radius: 10px;
+	padding: 30px;
+	text-align: center;
+	border: 2px solid #00FF00;
+	box-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00;
+}
+
+.view-voters-title {
+	font-size: 2.5em;
+	color: #00FF00;
+	margin-bottom: 30px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 12px;
+	border: 1px solid #00FF00;
+	text-align: left;
+}
+
+th {
+	background-color: #1f1f1f;
+}
+
+td {
+	background-color: #1f1f1f;
+}
+
+tr:hover {
+	background-color: #00FF00;
+	color: #121212;
+	transform: translateY(-5px);
+	box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+}
+
+.action-button {
+	background-color: #121212;
+	color: #00FF00;
+	border: 2px solid #00FF00;
+	padding: 10px 20px;
+	font-size: 1em;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease,
+		text-shadow 0.3s ease;
+	margin-top: 20px;
+}
+
+.delete-button {
+	background-color: #ff0000;
+	color: #fff;
+	border: 2px solid #ff0000;
+	padding: 5px 10px;
+	font-size: 0.9em;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease,
+		text-shadow 0.3s ease;
+}
+
+.delete-button:hover {
+	background-color: #cc0000;
+}
+
+.action-button:hover {
+	background-color: #00cc00;
+	color: #fff;
+}
+</style>
+</head>
+<body>
+
+	<div class="view-voters-container">
+		<h1 class="view-voters-title">Voter List</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date of Birth</th>
+					<th>Gender</th>
+					<th>Username</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="voter : ${voters}">
+					<td th:text="${voter.voterName}">John Doe</td>
+					<td th:text="${#dates.format(voter.DOB, 'yyyy-MM-dd')}">1980-01-01</td>
+					<td th:text="${voter.gender}">Male</td>
+					<td th:text="${voter.username}">johndoe</td>
+					<td>
+						<form th:action="@{'/deleteVoter/' + ${voter.id}}" method="post">
+							<button type="submit" class="delete-button">Delete</button>
+
+						</form>
+					
+			</tbody>
+		</table>
+		<a href="/Adashbord"><button class="action-button">Back
+				to Dashboard</button></a>
+	</div>
+
+</body>
+</html>

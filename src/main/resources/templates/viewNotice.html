@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Notices</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("https://removal.ai/wp-content/uploads/2021/09/black-background-04-coolbackgrounds.png");
+            color: #00FF00;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #121212;
+            border: 2px solid #00FF00;
+            border-radius: 5px;
+            padding: 20px;
+            color: #00FF00;
+            box-shadow: 0 0 10px #00FF00;
+        }
+
+        .notice {
+            background-color: #1f1f1f;
+            border: 2px solid #00FF00;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px #00FF00;
+        }
+
+        .notice-header {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .notice-body {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .notice-footer {
+            text-align: right;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .action-button {
+            background-color: #121212;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .action-button:hover {
+            background-color: #00cc00;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Notices</div>
+
+            <!-- Loop through notices -->
+            <div th:each="notice : ${notices}" class="notice">
+                <div class="notice-header">
+                    ID: <span th:text="${notice.Id}"></span><br>
+                    Notice Sender: <span th:text="${notice.noticesender}"></span>
+                </div>
+                <div class="notice-body" th:text="${notice.notice}"></div>
+                <div class="notice-footer">
+                    Date: <span th:text="${#dates.format(notice.noticedate, 'yyyy-MM-dd')}"></span>
+                </div>
+            </div>
+
+            <a href="/Vdashbord"><button class="action-button">Back to Dashboard</button></a>
+        </div>
+    </div>
+</body>
+</html>

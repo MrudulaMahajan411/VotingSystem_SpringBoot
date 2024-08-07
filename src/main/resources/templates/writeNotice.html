@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("https://removal.ai/wp-content/uploads/2021/09/black-background-04-coolbackgrounds.png");
+            color: #00FF00;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #121212;
+            border: 2px solid #00FF00;
+            border-radius: 5px;
+            padding: 20px;
+            color: #00FF00;
+            box-shadow: 0 0 10px #00FF00;
+       
+        }
+
+        .card-header {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        input, select, button {
+            background-color: #121212;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:hover, select:hover, button:hover {
+            background-color: #1f1f1f;
+            box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+            text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            color: #00FF00;
+        }
+
+        table, th, td {
+            border: 1px solid #00FF00;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1f1f1f;
+        }
+
+        td {
+            background-color: #121212;
+        }
+
+        .action-button {
+            background-color: #121212;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .action-button:hover {
+            background-color: #00cc00;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Manage Notices</div>
+            <form action="/gosaveNotice" method="post">
+                <input type="number" name="Id" placeholder="ID" required>
+                <input type="text" name="noticesender" placeholder="Notice Sender" required>
+                <input type="date" name="noticedate" placeholder="Notice Date" required>
+                <input type="text" name="notice" placeholder="Notice" required>
+                <button type="submit">Add Notice</button>
+            </form>
+
+          
+
+            <a href="/Adashbord"><button class="action-button">Back to Dashboard</button></a>
+        </div>
+    </div>
+</body>
+</html>
